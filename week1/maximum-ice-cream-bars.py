@@ -5,7 +5,7 @@ class Solution:
         summ = 0
 
         for i in range(len(costs)):
-            if costs[i] + count <= coins and summ + costs[i] <= coins:
+            if summ + costs[i] <= coins:
                 summ += costs[i]
                 count += 1
 
