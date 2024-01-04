@@ -2,7 +2,6 @@ class Solution:
     def getCommon(self, nums1: List[int], nums2: List[int]) -> int:
         i = 0
         j = 0
-        max_len = max(len(nums1),len(nums2))
 
         while i < len(nums1)  and j < len(nums2):
             if nums1[i] == nums2[j]:
