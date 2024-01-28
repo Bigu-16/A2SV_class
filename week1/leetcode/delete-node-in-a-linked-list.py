@@ -13,6 +13,7 @@ class Solution:
         node.val = node.next.val 
         if node.next.next:
             node.next = node.next.next
-        else:node.next = None
+        else:
+            node.next = None
 
     
