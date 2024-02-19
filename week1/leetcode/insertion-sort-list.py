@@ -5,25 +5,19 @@
 #         self.next = next
 class Solution:
     def insertionSortList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        if not head or not head.next:
-            return head
-        
-        dummy = ListNode()
-        dummy.next = head
-        curr = head.next
-        tail = head
+        prev = None
+        curr = head
 
         while curr:
-            if curr.val >= tail.val:
-                tail = curr
-                curr = curr.next
-            else:
-                tail.next = curr.next
-                prev = dummy
-                while prev.next.val < curr.val:
-                    prev = prev.next
-                curr.next = prev.next
-                prev.next = curr
-                curr = tail.next
-
-        return dummy.next
+            nxt = curr.next
+            curr.next = prev
+            prev = curr
+            temp = curr
+            while temp.next:
+                if temp.val > temp.next.val:
+                    temp.val, temp.next.val = temp.next.val,temp.val
+                temp = temp.next
+            curr = nxt
+        
+        return prev
+        
