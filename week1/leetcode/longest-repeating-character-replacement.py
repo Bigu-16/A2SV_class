@@ -3,13 +3,13 @@ class Solution:
         s_dict = defaultdict(int)
 
         left = 0
-        count = 0 
         ans = 0
+        max_count = 0
         for right in range(len(s)):
             s_dict[s[right]] += 1
 
-            freq = max(s_dict.values())
-            while (right - left + 1) - freq > k and left < len(s):  
+            max_count = max(max_count,s_dict[s[right]])
+            while (right - left + 1) - max_count > k:  
                 s_dict[s[left]] -= 1
                 left += 1
             
